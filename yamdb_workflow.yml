@@ -61,6 +61,7 @@ jobs:
           key: ${{ secrets.SECRET_SSH }}
           passphrase: ${{ secrets.SECRET_PASSPHRASE }}
           script: |
+            cd infra/
             sudo docker-compose stop
             sudo docker-compose rm web
             sudo docker-compose pull

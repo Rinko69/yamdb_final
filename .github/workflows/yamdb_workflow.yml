@@ -31,7 +31,7 @@ jobs:
         cd api_yamdb/
         python manage.py test
         cd ..
-        
+
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
@@ -66,6 +66,7 @@ jobs:
           key: ${{ secrets.SECRET_SSH }}
           passphrase: ${{ secrets.SECRET_PASSPHRASE }}
           script: |
+            cd infra/
             sudo docker-compose stop
             sudo docker-compose rm web
             sudo docker-compose pull
